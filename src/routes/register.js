@@ -1,5 +1,4 @@
-const register = (app, mongoCLient, uri) => {
-    
+const register = ({app, mongoCLient, uri, dataBase}) => {
 
     app.post('/test', (req, res) => {
         try{
@@ -10,7 +9,7 @@ const register = (app, mongoCLient, uri) => {
 
             mongoCLient.connect(uri, (error, db) => {
                 if (error) throw error;
-                const dbo = db.db('Caldinho');
+                const dbo = db.db(dataBase);
                 dbo.collection('weigth').insertOne(obj, (error, res) => {
                     if ( error ) throw error;
                     console.log('1 document inserted');
