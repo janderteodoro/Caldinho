@@ -5,13 +5,13 @@ const register = (app, mongoCLient, uri) => {
         try{
 
             const { weigthData } = req.body;
-            + weigthData;
-            console.log(typeof weigthData);
-        
+            const date = new Date();
+            const obj = {weigthData, date};
+
             mongoCLient.connect(uri, (error, db) => {
                 if (error) throw error;
                 const dbo = db.db('Caldinho');
-                dbo.collection('weigth').insertOne(weigthData, (error, res) => {
+                dbo.collection('weigth').insertOne(obj, (error, res) => {
                     if ( error ) throw error;
                     console.log('1 document inserted');
                     db.close();
