@@ -1,13 +1,13 @@
-const register = ({app, mongoCLient, uri, dataBase}) => {
+const register = ({app, mongoClient, uri, dataBase}) => {
 
-    app.post('/test', (req, res) => {
-        try{
+    app.post('/register', (req, res) => {
+        try { 
 
             const { weigthData } = req.body;
             const date = new Date();
             const obj = {weigthData, date};
 
-            mongoCLient.connect(uri, (error, db) => {
+            mongoClient.connect(uri, (error, db) => {
                 if (error) throw error;
                 const dbo = db.db(dataBase);
                 dbo.collection('weigth').insertOne(obj, (error, res) => {
@@ -16,6 +16,7 @@ const register = ({app, mongoCLient, uri, dataBase}) => {
                     db.close();
                 })
             })
+
         } catch(e){
             console.log('ERRRO=> ', e);
             throw e;
