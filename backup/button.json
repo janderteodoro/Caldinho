@@ -1,0 +1,47 @@
+{
+    "whatsapp": {
+        "namespace": "f6df27f9_ea3e_ea04_ebef_e386cc7af699",
+        "name": "prepaid_choice_confirmation_v2",
+        "language": {
+            "policy": "deterministic",
+            "code": "pt_BR"
+        },
+        "components": [
+            {
+                "type": "button",
+                "sub_type": "quick_reply",
+                "index": "0",
+                "parameters": [
+                    {
+                        "type": "text",
+                        "text": "Sim, tudo certo"
+                    }
+                ]
+            },
+            {
+                "type": "button",
+                "sub_type": "quick_reply",
+                "index": "1",
+                "parameters": [
+                    {
+                        "type": "text",
+                        "text": "Quero trocar"
+                    }
+                ]
+            }
+        ]
+    },
+  "telegram": {
+        "text": "Quase lá! Antes de continuar, só me confirma se está tudo certinho com o que você escolheu. ☺️",
+        "components": [
+            {
+                "value": "Sim",
+                "text": "ok"
+            },
+            {
+                "value": "Não",
+                "text": "mudar"
+            }
+        ]
+    }
+}
